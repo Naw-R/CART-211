@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artsify - Abstract Sunset</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="../assets/js/cart.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Artsify</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../products.html">Products</a></li>
+                <li><a href="../contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <!-- Profile Icon/Link -->
+            <a href="../profile.html" class="profile-link">
+                <img src="../assets/images/profile-icon.png" alt="Profile Icon" class="profile-icon">
+            </a>
+            <!-- Cart Icon/Link -->
+            <a href="../checkout.html" class="cart">
+                <img src="../assets/images/cart-icon.jpeg" alt="Cart Icon" class="cart-icon">
+                <span id="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Product Detail Section -->
+        <section class="product-detail">
+            <img src="../assets/images/art6.jpg" alt="Abstract Sunset Art">
+            <div class="product-info">
+                <h1>Abstract Sunset</h1>
+                <p>Price: <span class="price">CA$110</span></p>
+                <p>Capture the breathtaking colors of a sunset with this abstract art piece that radiates warmth.</p>
+                <p><strong>Dimensions:</strong> 26" x 34"</p>
+                <p><strong>Materials:</strong> Canvas, Acrylic Paint</p>
+
+                <!-- Add to Cart Button -->
+                <button id="add-to-cart-btn" class="btn">Add to Cart</button>
+                <!-- Notification for Product Added -->
+                <p id="cart-notification" style="display:none; color: green;">Product added to cart!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Artsify. All rights reserved. Rowan Nasser</p>
+    </footer>
+
+    <script>
+        const product = {
+            id: 6,
+            name: 'Abstract Sunset',
+            price: 110,
+            image: '../assets/images/art6.jpg',
+            description: 'Capture the breathtaking colors of a sunset with this abstract art piece that radiates warmth.'
+        };
+
+        // Function to handle the 'Add to Cart' click
+            document.getElementById('add-to-cart-btn').addEventListener('click', function () {
+                addToCart(product);  // Add product to the cart
+
+                // Show the "Product added to cart" message
+                const notificationEl = document.getElementById('cart-notification');
+                notificationEl.style.display = 'block';
+
+                // Hide the message after 3 seconds
+                setTimeout(function () {
+                    notificationEl.style.display = 'none';
+                }, 3000);
+
+                // Update cart display count in header
+                updateCartDisplay();
+            });
+
+            // Ensure the cart count is updated on page load
+            document.addEventListener('DOMContentLoaded', function () {
+                updateCartDisplay();  // Update cart count in header when the page loads
+            });
+    </script>
+</body>
+
+</html>

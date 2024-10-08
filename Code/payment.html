@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artsify - Payment</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/cart.js" defer></script>
+</head>
+
+<body>
+    <!-- Header section -->
+    <header>
+        <div class="logo">Artsify</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <!-- Profile Icon/Link -->
+            <a href="profile.html" class="profile-link">
+                <img src="assets/images/profile-icon.png" alt="Profile Icon" class="profile-icon">
+            </a>
+            <!-- Cart Icon/Link -->
+            <a href="checkout.html" class="cart">
+                <img src="assets/images/cart-icon.jpeg" alt="Cart Icon" class="cart-icon">
+                <span id="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+
+    <!-- Main Payment Section -->
+    <main>
+        <section class="payment-container">
+            <h1>Payment Details</h1>
+            <!-- Payment Form -->
+            <form id="payment-form">
+                <!-- Shipping Information -->
+                <fieldset>
+                    <legend>Shipping Information</legend>
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" required>
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" required>
+                    <label for="state">State/Province:</label>
+                    <input type="text" id="state" name="state" required>
+                    <label for="zip">Zip/Postal Code:</label>
+                    <input type="text" id="zip" name="zip" required>
+                    <label for="country">Country:</label>
+                    <input type="text" id="country" name="country" required>
+                </fieldset>
+
+                <!-- Payment Information -->
+                <fieldset>
+                    <legend>Payment Information</legend>
+                    <label for="card-number">Card Number:</label>
+                    <input type="text" id="card-number" name="card-number" required pattern="[0-9]{16}" maxlength="16"
+                        placeholder="1234 5678 9012 3456">
+                    <label for="card-expiration">Expiration Date:</label>
+                    <input type="text" id="card-expiration" name="card-expiration" required
+                        pattern="(0[1-9]|1[0-2])/[0-9]{2}" placeholder="MM/YY">
+                    <label for="card-cvc">CVC:</label>
+                    <input type="text" id="card-cvc" name="card-cvc" required pattern="[0-9]{3}" maxlength="3"
+                        placeholder="123">
+                </fieldset>
+
+                <!-- Order Summary -->
+                <fieldset class="order-summary">
+                    <legend>Order Summary</legend>
+                    <div id="order-summary-container">
+                        <p><strong>Item(s) Total:</strong> <span id="order-item-total">CA$0.00</span></p>
+                        <p><strong>Shipping:</strong> <span>FREE</span></p>
+                        <hr>
+                        <p><strong>Total Amount:</strong> <span id="order-total">CA$0.00</span></p>
+                    </div>
+                </fieldset>
+
+                <button type="submit" class="btn-submit">Complete Purchase</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Artsify. All rights reserved. Rowan Nasser</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            displayOrderSummary();  // Display the order summary
+            updateCartDisplay();  // Update cart count in the header
+
+            // Handle form submission
+            document.getElementById('payment-form').addEventListener('submit', function (event) {
+                event.preventDefault();  // Prevent form submission
+                alert('Payment processed successfully! Thank you for your purchase.');
+                localStorage.removeItem('cart');  // Clear the cart after purchase
+                window.location.href = 'thank-you.html';  // Redirect to a thank you page
+            });
+        });
+
+        // Function to display the order summary
+        function displayOrderSummary() {
+            const cartItems = getCartItems();
+            const orderItemTotalEl = document.getElementById('order-item-total');
+            const orderTotalEl = document.getElementById('order-total');
+
+            let total = 0;
+
+            cartItems.forEach(item => {
+                total += item.price * item.quantity;
+            });
+
+            orderItemTotalEl.textContent = `CA$${total.toFixed(2)}`;
+            orderTotalEl.textContent = `CA$${total.toFixed(2)}`;
+        }
+
+        // Function to update cart count in the header
+        function updateCartDisplay() {
+            const cart = getCartItems();
+            const cartCountEl = document.getElementById('cart-count');
+            const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+
+            cartCountEl.textContent = totalQuantity > 0 ? `${totalQuantity}` : '0';
+        }
+    </script>
+</body>
+
+</html>

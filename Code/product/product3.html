@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artsify - Vintage Vibes</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="../assets/js/cart.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Artsify</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../products.html">Products</a></li>
+                <li><a href="../contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <!-- Profile Icon/Link -->
+            <a href="../profile.html" class="profile-link">
+                <img src="../assets/images/profile-icon.png" alt="Profile Icon" class="profile-icon">
+            </a>
+            <!-- Cart Icon/Link -->
+            <a href="../checkout.html" class="cart">
+                <img src="../assets/images/cart-icon.jpeg" alt="Cart Icon" class="cart-icon">
+                <span id="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Product Detail Section -->
+        <section class="product-detail">
+            <img src="../assets/images/art3.jpg" alt="Vintage Vibes Art">
+            <div class="product-info">
+                <h1>Vintage Vibes</h1>
+                <p>Price: <span class="price">CA$150</span></p>
+                <p>Step back in time with this retro-inspired piece that evokes a sense of nostalgia and charm.</p>
+                <p><strong>Dimensions:</strong> 28" x 36"</p>
+                <p><strong>Materials:</strong> Canvas, Acrylic Paint</p>
+
+                <!-- Add to Cart Button -->
+                <button id="add-to-cart-btn" class="btn">Add to Cart</button>
+                <!-- Notification for Product Added -->
+                <p id="cart-notification" style="display:none; color: green;">Product added to cart!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Artsify. All rights reserved. Rowan Nasser</p>
+    </footer>
+
+    <script>
+        const product = {
+            id: 3,
+            name: 'Vintage Vibes',
+            price: 150,
+            image: '../assets/images/art3.jpg',
+            description: 'Step back in time with this retro-inspired piece that evokes a sense of nostalgia and charm.'
+        };
+
+        // Function to handle the 'Add to Cart' click
+            document.getElementById('add-to-cart-btn').addEventListener('click', function () {
+                addToCart(product);  // Add product to the cart
+
+                // Show the "Product added to cart" message
+                const notificationEl = document.getElementById('cart-notification');
+                notificationEl.style.display = 'block';
+
+                // Hide the message after 3 seconds
+                setTimeout(function () {
+                    notificationEl.style.display = 'none';
+                }, 3000);
+
+                // Update cart display count in header
+                updateCartDisplay();
+            });
+
+            // Ensure the cart count is updated on page load
+            document.addEventListener('DOMContentLoaded', function () {
+                updateCartDisplay();  // Update cart count in header when the page loads
+            });
+    </script>
+</body>
+
+</html>

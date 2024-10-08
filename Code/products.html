@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artsify - Products</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/cart.js" defer></script>
+</head>
+
+<body>
+    <!-- Header section -->
+<header>
+    <div class="logo">Artsify</div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="icons">
+        <!-- Profile Icon/Link -->
+        <a href="profile.html" class="profile-link">
+            <img src="assets/images/profile-icon.png" alt="Profile Icon" class="profile-icon">
+        </a>
+        <!-- Cart Icon/Link -->
+        <a href="checkout.html" class="cart">
+            <img src="assets/images/cart-icon.jpeg" alt="Cart Icon" class="cart-icon">
+            <span id="cart-count">0</span>
+        </a>
+    </div>
+</header>
+
+
+    <main>
+        <!-- Products Section -->
+        <section class="products-list">
+            <h1>Our Collection</h1>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product">
+                    <img src="assets/images/art1.jpg" alt="Abstract Colors Art">
+                    <h3>Abstract Colors</h3>
+                    <p>Experience a unique burst of colors with this modern abstract piece. Perfect for contemporary
+                        spaces.</p>
+                    <p class="price">CA$120</p>
+                    <a href="product/product1.html" class="btn">View Details</a>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product">
+                    <img src="assets/images/art2.jpg" alt="Modern Landscape Art">
+                    <h3>Modern Landscape</h3>
+                    <p>A calming landscape that brings nature's tranquility to your home. Ideal for relaxation areas.
+                    </p>
+                    <p class="price">CA$200</p>
+                    <a href="product/product2.html" class="btn">View Details</a>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product">
+                    <img src="assets/images/art3.jpg" alt="Vintage Vibes Art">
+                    <h3>Vintage Vibes</h3>
+                    <p>Step back in time with this retro-inspired piece that evokes a sense of nostalgia and charm.</p>
+                    <p class="price">CA$150</p>
+                    <a href="product/product3.html" class="btn">View Details</a>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product">
+                    <img src="assets/images/art4.jpg" alt="Minimalist Geometry Art">
+                    <h3>Minimalist Geometry</h3>
+                    <p>Sleek lines and simple shapes create a modern and elegant look, perfect for clean, minimalist
+                        homes.</p>
+                    <p class="price">CA$95</p>
+                    <a href="product/product4.html" class="btn">View Details</a>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product">
+                    <img src="assets/images/art5.jpg" alt="Floral Delight Art">
+                    <h3>Floral Delight</h3>
+                    <p>Delicate and bright, this floral art piece brings the beauty of nature indoors with stunning
+                        detail.</p>
+                    <p class="price">CA$180</p>
+                <a href="product/product5.html" class="btn">View Details</a>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product">
+                    <img src="assets/images/art6.jpg" alt="Abstract Sunset Art">
+                    <h3>Abstract Sunset</h3>
+                    <p>Capture the breathtaking colors of a sunset with this abstract art piece that radiates warmth.
+                    </p>
+                    <p class="price">CA$110</p>
+                    <a href="product/product6.html" class="btn">View Details</a>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product">
+                    <img src="assets/images/art7.jpg" alt="Mountain Escape Art">
+                    <h3>Mountain Escape</h3>
+                    <p>This dramatic mountain landscape brings a sense of adventure and serenity to your space.</p>
+                    <p class="price">CA$250</p>
+                    <a href="product/product7.html" class="btn">View Details</a>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product">
+                    <img src="assets/images/art8.jpg" alt="Watercolor Dreams Art">
+                    <h3>Watercolor Dreams</h3>
+                    <p>Soft hues and fluid lines create a dreamy, peaceful scene, perfect for bedrooms or calming
+                        spaces.</p>
+                    <p class="price">CA$90</p>
+                    <a href="product/product8.html" class="btn">View Details</a>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product">
+                    <img src="assets/images/art9.jpg" alt="Golden Horizon Art">
+                    <h3>Golden Horizon</h3>
+                    <p>Rich golds and warm tones evoke the beauty of a setting sun over the horizon. Ideal for dining
+                        spaces.</p>
+                    <p class="price">CA$170</p>
+                    <a href="product/product9.html" class="btn">View Details</a>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product">
+                    <img src="assets/images/art10.jpg" alt="Monochrome Beauty Art">
+                    <h3>Monochrome Beauty</h3>
+                    <p>A striking black-and-white piece that adds sophistication and contrast to any modern room.</p>
+                    <p class="price">CA$130</p>
+                    <a href="product/product10.html" class="btn">View Details</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Artsify. All rights reserved. Rowan Nasser</p>
+    </footer>
+    <!-- Ensure cart count updates on page load -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            updateCartDisplay();  // Call this to update the cart count on page load
+        });
+    </script>
+</body>
+
+</html>

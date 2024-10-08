@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artsify - Checkout</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/cart.js" defer></script>
+</head>
+
+<body>
+    <!-- Header section -->
+    <header>
+        <div class="logo">Artsify</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <!-- Profile Icon/Link -->
+            <a href="profile.html" class="profile-link">
+                <img src="assets/images/profile-icon.png" alt="Profile Icon" class="profile-icon">
+            </a>
+            <!-- Cart Icon/Link -->
+            <a href="checkout.html" class="cart">
+                <img src="assets/images/cart-icon.jpeg" alt="Cart Icon" class="cart-icon">
+                <span id="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+
+    <!-- Main Checkout Section -->
+    <main>
+        <section class="checkout-container">
+            <!-- Cart Items Section -->
+            <div class="cart-items">
+                <h1 class="cart-status">Your basket is empty</h1>
+                <div id="cart-items-container"></div>
+            </div>
+
+            <!-- Summary Section -->
+            <div class="checkout-summary" style="display: none;">
+                <h2>Order Summary</h2>
+                <p><strong>Item(s) Total:</strong> <span id="cart-item-total">CA$0.00</span></p>
+                <p><strong>Shipping:</strong> <span>FREE</span></p>
+                <hr>
+                <p><strong>Order Total:</strong> <span id="cart-total">CA$0.00</span></p>
+                <button id="proceed-to-payment" class="btn-checkout" style="display: none;">Proceed to Payment</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Artsify. All rights reserved. Rowan Nasser</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            displayCartItems();  // Display cart items dynamically
+            updateCartDisplay();  // Update cart count in the header
+
+            // Select the checkout button
+            const checkoutButton = document.getElementById('proceed-to-payment');
+
+            // Add event listener to the button
+            checkoutButton.addEventListener('click', function () {
+                // Redirect to the payment page when clicked
+                window.location.href = "payment.html";
+            });
+        });
+
+        // Function to display cart items and update the button state dynamically
+        function displayCartItems() {
+            const cartItemsContainer = document.getElementById('cart-items-container');
+            const cartItems = getCartItems();  // Retrieve cart from localStorage
+            const cartStatusEl = document.querySelector('.cart-status');
+            const summaryTotalEl = document.querySelector('.checkout-summary');
+            const checkoutButtonEl = document.getElementById('proceed-to-payment');
+
+            if (cartItems.length === 0) {
+                cartStatusEl.textContent = 'Your basket is empty';
+                summaryTotalEl.style.display = 'none';
+                checkoutButtonEl.style.display = 'none';
+                return;
+            }
+
+            cartStatusEl.textContent = `${cartItems.length} item(s) in your basket`;
+            summaryTotalEl.style.display = 'block';
+            checkoutButtonEl.style.display = 'block';
+
+            cartItemsContainer.innerHTML = ''; // Clear existing items before adding new ones
+
+            let total = 0;
+
+            // Iterate over the cart items to generate the display
+            cartItems.forEach(item => {
+                const itemTotalPrice = item.price * item.quantity;
+                total += itemTotalPrice;
+
+                const cartItemEl = document.createElement('div');
+                cartItemEl.classList.add('checkout-item');
+
+                cartItemEl.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="checkout-item-details">
+                        <h3>${item.name}</h3>
+                        <p>${item.description}</p>
+                        <div class="item-price">
+                            <span>CA$${item.price.toFixed(2)} x ${item.quantity} = CA$${itemTotalPrice.toFixed(2)}</span>
+                        </div>
+                        <div class="quantity">
+                            <label for="quantity-${item.id}">Quantity: </label>
+                            <input type="number" id="quantity-${item.id}" name="quantity" value="${item.quantity}" min="1">
+                        </div>
+                        <div class="checkout-actions">
+                            <button class="btn-remove" data-id="${item.id}">Remove</button>
+                        </div>
+                    </div>
+                `;
+
+                cartItemsContainer.appendChild(cartItemEl);
+
+                // Event listener for quantity changes
+                cartItemEl.querySelector(`#quantity-${item.id}`).addEventListener('change', function (e) {
+                    const newQuantity = parseInt(e.target.value);
+                    if (newQuantity > 0) {
+                        updateCartItem(item.id, newQuantity);  // Update quantity in cart
+                        displayCartItems();  // Refresh the cart display
+                    } else {
+                        e.target.value = item.quantity;  // Prevent setting quantity to zero or negative
+                    }
+                });
+
+                // Event listener for remove button
+                cartItemEl.querySelector('.btn-remove').addEventListener('click', function () {
+                    removeFromCart(item.id);  // Remove item from the cart
+                    displayCartItems();  // Refresh the cart display
+                });
+            });
+
+            // Update the total prices
+            document.getElementById('cart-item-total').textContent = `CA$${total.toFixed(2)}`;
+            document.getElementById('cart-total').textContent = `CA$${total.toFixed(2)}`;
+        }
+
+        // Function to update cart count in the header
+        function updateCartDisplay() {
+            const cart = getCartItems();
+            const cartCountEl = document.getElementById('cart-count');
+            const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+
+            cartCountEl.textContent = totalQuantity > 0 ? `${totalQuantity}` : '0';
+        }
+    </script>
+</body>
+
+</html>

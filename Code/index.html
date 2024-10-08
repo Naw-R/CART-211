@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artsify - Home</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/cart.js" defer></script>
+</head>
+
+<body>
+    <!-- Header section -->
+<header>
+    <div class="logo">Artsify</div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="icons">
+        <!-- Profile Icon/Link -->
+        <a href="profile.html" class="profile-link">
+            <img src="assets/images/profile-icon.png" alt="Profile Icon" class="profile-icon">
+        </a>
+        <!-- Cart Icon/Link -->
+        <a href="checkout.html" class="cart">
+            <img src="assets/images/cart-icon.jpeg" alt="Cart Icon" class="cart-icon">
+            <span id="cart-count">0</span>
+        </a>
+    </div>
+</header>
+
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Discover Unique Art Collections</h1>
+                <p>This Website is created for artists to showcase their work and for art fans to purchase them</p>
+                <a href="products.html" class="btn">Shop Now</a>
+            </div>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section class="featured-products">
+            <h2>Top Picks for You</h2>
+
+            <div class="product-grid">
+                <!-- Product 1: Abstract Colors -->
+                <div class="product">
+                    <a href="product/product1.html">
+                        <img src="assets/images/art1.jpg" alt="Abstract Colors Art">
+                    </a>
+                    <h3>Abstract Colors</h3>
+                    <p>Experience a unique burst of colors with this modern abstract piece. Perfect for contemporary
+                        spaces.</p>
+                    <p class="price">CA$120</p>
+                    <a href="product/product1.html" class="btn">View Details</a>
+                </div>
+
+                <!-- Product 2: Modern Landscape -->
+                <div class="product">
+                    <a href="product/product2.html">
+                        <img src="assets/images/art2.jpg" alt="Modern Landscape Art">
+                    </a>
+                    <h3>Modern Landscape</h3>
+                    <p>A calming landscape that brings nature's tranquility to your home. Ideal for relaxation areas.
+                    </p>
+                    <p class="price">CA$200</p>
+                    <a href="product/product2.html" class="btn">View Details</a>
+                </div>
+
+                <!-- Product 3: Vintage Vibes -->
+                <div class="product">
+                    <a href="product/product3.html">
+                        <img src="assets/images/art3.jpg" alt="Vintage Vibes Art">
+                    </a>
+                    <h3>Vintage Vibes</h3>
+                    <p>Step back in time with this retro-inspired piece that evokes a sense of nostalgia and charm.</p>
+                    <p class="price">CA$150</p>
+                    <a href="product/product3.html" class="btn">View Details</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Artsify. All rights reserved. Rowan Nasser</p>
+    </footer>
+    <!-- Ensure cart count updates on page load -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            updateCartDisplay();  // Call this to update the cart count on page load
+        });
+    </script>
+</body>
+
+</html>
