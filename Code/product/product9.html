@@ -49,6 +49,15 @@
                 <p id="cart-notification" style="display:none; color: green;">Product added to cart!</p>
             </div>
         </section>
+
+        <!-- Comment Section -->
+        <section class="comment-section">
+            <h2>Leave a Comment for the Seller</h2>
+            <textarea id="comment-text" rows="4" placeholder="Write your comment here..."></textarea>
+            <button id="submit-comment" class="btn">Submit Comment</button>
+            <p id="comment-success" class="comment-success" style="display: none; color: green;">Comment submitted
+                successfully!</p>
+        </section>
     </main>
 
     <footer>
@@ -65,27 +74,49 @@
         };
 
         // Function to handle the 'Add to Cart' click
-            document.getElementById('add-to-cart-btn').addEventListener('click', function () {
-                addToCart(product);  // Add product to the cart
+        document.getElementById('add-to-cart-btn').addEventListener('click', function () {
+            addToCart(product);  // Add product to the cart
 
-                // Show the "Product added to cart" message
-                const notificationEl = document.getElementById('cart-notification');
-                notificationEl.style.display = 'block';
+            // Show the "Product added to cart" message
+            const notificationEl = document.getElementById('cart-notification');
+            notificationEl.style.display = 'block';
 
-                // Hide the message after 3 seconds
+            // Hide the message after 3 seconds
+            setTimeout(function () {
+                notificationEl.style.display = 'none';
+            }, 3000);
+
+            // Update cart display count in header
+            updateCartDisplay();
+        });
+
+        // Ensure the cart count is updated on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            updateCartDisplay();  // Update cart count in header when the page loads
+        });
+
+        // Handle the comment form submission
+        document.getElementById('submit-comment').addEventListener('click', function () {
+            const commentText = document.getElementById('comment-text').value;
+
+            if (commentText.trim() !== "") {
+                // Display a success message
+                const successMessage = document.getElementById('comment-success');
+                successMessage.style.display = 'block';
+
+                // Clear the textarea after submission
+                document.getElementById('comment-text').value = '';
+
+                // Hide the success message after 3 seconds
                 setTimeout(function () {
-                    notificationEl.style.display = 'none';
+                    successMessage.style.display = 'none';
                 }, 3000);
-
-                // Update cart display count in header
-                updateCartDisplay();
-            });
-
-            // Ensure the cart count is updated on page load
-            document.addEventListener('DOMContentLoaded', function () {
-                updateCartDisplay();  // Update cart count in header when the page loads
-            });
+            } else {
+                alert("Please write a comment before submitting.");
+            }
+        });
     </script>
+
 </body>
 
 </html>

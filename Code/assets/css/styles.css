@@ -554,21 +554,126 @@ hr {
     background-color: #d35400;
 }
 
-/* Profile Page Styles */
+/* Profile Page Layout */
 .profile-container {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    gap: 20px;
 }
 
-.profile-container h1 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    color: #333;
+/* Profile Information Section */
+.profile-info {
+    flex: 0.3;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.user-details img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.user-details p {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.profile-info form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-info form input,
+.profile-info form button {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.profile-info form button {
+    background-color: #f16521;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.profile-info form button:hover {
+    background-color: #d35400;
+}
+
+/* Profile Content (Art for Sale and Purchased Art) */
+.profile-content {
+    flex: 0.7;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.art-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.art-card {
+    background-color: #f9f9f9;
+    width: 48%;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.art-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.art-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.art-card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Add Item Form Styling */
+.add-item-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.add-item-form input,
+.add-item-form button {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.add-item-form button {
+    background-color: #f16521;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.add-item-form button:hover {
+    background-color: #d35400;
 }
 /* Profile Icon Styling */
 .profile-icon {
@@ -580,6 +685,112 @@ hr {
     vertical-align: middle;
     object-fit: contain;
     /* Ensures the image scales correctly */
+}
+/* Profile Page Styling */
+.profile-info,
+.art-for-sale,
+.purchased-art {
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info h1,
+.art-for-sale h2,
+.purchased-art h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.profile-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+/* Add Item to Sell Section */
+#add-item-section {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#add-item-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #333;
+}
+
+#add-item-section label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #555;
+}
+
+#add-item-section input,
+#add-item-section textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+
+#add-item-section button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #f16521;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+#add-item-section button:hover {
+    background-color: #d35400;
+}
+
+/* Style for the image preview */
+#image-preview {
+    display: block;
+    margin: 1rem 0;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+/* Art section styles */
+.art-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+}
+
+.art-card img {
+    width: 80px;
+    height: 80px;
+    margin-right: 1rem;
+    border-radius: 5px;
+}
+
+.art-card h3 {
+    font-size: 1.2rem;
+    margin: 0;
 }
 
 /* Form Styles */
@@ -659,4 +870,60 @@ input[type="email"] {
 
 .order-item:last-child {
     border-bottom: none;
+}
+/* Comment Section Styling */
+.comment-section {
+    margin-top: 2rem;
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comment-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #333;
+    text-align: center;
+}
+
+.comment-section textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    resize: vertical;
+    margin-bottom: 1rem;
+}
+
+.comment-section button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #f16521;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.comment-section button:hover {
+    background-color: #d35400;
+}
+
+/* Style for success message */
+.comment-success {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    display: none;
+    /* Hidden by default */
 }

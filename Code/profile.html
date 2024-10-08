@@ -7,10 +7,11 @@
     <title>Artsify - Profile</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="assets/js/profile.js" defer></script>
+    <script src="assets/js/cart.js" defer></script>
 </head>
 
 <body>
-    <!-- Header section -->
+    <!-- Header -->
     <header>
         <div class="logo">Artsify</div>
         <nav>
@@ -18,55 +19,61 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="profile.html">Profile</a></li>
             </ul>
         </nav>
-        <div class="icons">
-            <!-- Profile Icon/Link -->
-            <a href="profile.html" class="profile-link">
-                <img src="assets/images/profile-icon.png" alt="Profile Icon" class="profile-icon">
-            </a>
-            <!-- Cart Icon/Link -->
-            <a href="checkout.html" class="cart">
+        <div class="cart">
+            <a href="checkout.html">
                 <img src="assets/images/cart-icon.jpeg" alt="Cart Icon" class="cart-icon">
                 <span id="cart-count">0</span>
             </a>
         </div>
     </header>
 
-
     <!-- Main Profile Section -->
-    <main>
-        <section class="profile-container">
-            <h1>User Profile</h1>
+    <main class="profile-container">
+        <!-- Profile Info Section -->
+        <section class="profile-info">
+            <h2>Your Profile</h2>
+            <div id="user-details" class="user-details"></div>
             <form id="profile-form">
-                <fieldset>
-                    <legend>Personal Information</legend>
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" value="John Doe" required>
-
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" value="johndoe@example.com" required>
-
-                    <label for="address">Address:</label>
-                    <input type="text" id="address" name="address" value="123 Main St, Cityville" required>
-                </fieldset>
-
-                <button type="submit" class="btn-submit">Save Changes</button>
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <button type="submit" class="btn">Update Profile</button>
             </form>
+        </section>
 
-            <section class="order-history">
-                <h2>Order History</h2>
-                <div class="order-list">
-                    <!-- Orders will be dynamically populated here using JavaScript -->
-                    <p>No orders yet.</p>
-                </div>
-            </section>
+        <!-- Products and Orders Section -->
+        <section class="profile-content">
+            <h2>Art for Sale</h2>
+            <div id="for-sale-container" class="art-container"></div>
+
+            <h2>Purchased Art</h2>
+            <div id="purchased-container" class="art-container"></div>
+
+            <h2>Add New Art to Sell</h2>
+            <form id="add-item-form" class="add-item-form">
+                <label for="item-title">Title:</label>
+                <input type="text" id="item-title" required>
+                <label for="item-price">Price (CA$):</label>
+                <input type="number" id="item-price" min="0" required>
+                <label for="item-image">Image URL:</label>
+                <input type="text" id="item-image" required>
+                <button type="submit" class="btn">Add Item</button>
+            </form>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2024 Artsify. All rights reserved.</p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            updateCartDisplay();  // Call this to update the cart count on page load
+        });
+    </script>
 </body>
 
 </html>
