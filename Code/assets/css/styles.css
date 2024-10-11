@@ -1,4 +1,6 @@
-/* General Reset */
+/* ====================================================
+   General Reset & Utility Classes
+   ==================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -15,13 +17,28 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #f6f6f6;
+    line-height: 1.6;
 }
 
-main {
-    flex-grow: 1;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
-/* Header Styling */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* ====================================================
+   Header Styling
+   ==================================================== */
 header {
     background-color: #ffffff;
     border-bottom: 1px solid #e6e6e6;
@@ -56,25 +73,19 @@ header nav ul li a {
     transition: color 0.3s;
 }
 
-header nav ul li a:hover {
+header nav ul li a:hover,
+header nav ul li a:focus {
     color: #f16521;
 }
 
-/* Cart Icon Styling */
-.cart-icon {
+/* Cart and Profile Icons */
+.cart-icon,
+.profile-icon {
     width: 30px;
     height: 30px;
-    vertical-align: middle;
     cursor: pointer;
-}
-
-.cart {
-    position: relative;
-}
-
-.cart img {
-    width: 30px;
-    height: auto;
+    vertical-align: middle;
+    object-fit: contain;
 }
 
 .cart span {
@@ -84,100 +95,59 @@ header nav ul li a:hover {
     padding: 2px 6px;
     font-size: 0.8rem;
     position: absolute;
-    top: -5px;
-    right: -10px;
+    top: 10px;
+    right: 18px;
 }
 
-/* Footer Styling */
-footer {
-    text-align: center;
-    padding: 1.5rem;
-    background-color: #333;
+/* ====================================================
+   Hero Section (Home Page)
+   ==================================================== */
+.hero {
+    position: relative;
+    height: 80vh;
+    background: url('../images/hero-background.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #fff;
-    font-size: 0.9rem;
-    width: 100%;
-}
-
-/* Contact Form Styling */
-.contact-form {
-    max-width: 600px;
-    margin: 3rem auto;
     padding: 2rem;
-    background-color: #fff;
-    border: 1px solid #e6e6e6;
+}
+
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form h1 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
     text-align: center;
 }
 
-.contact-form label {
-    display: block;
-    margin-bottom: 0.5rem;
+.hero h1 {
+    font-size: 3rem;
     font-weight: bold;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 0.75rem;
     margin-bottom: 1rem;
-    border: 1px solid #e6e6e6;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: #f6f6f6;
 }
 
-.contact-form button {
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #f16521;
-    color: white;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-}
-
-.contact-form button:hover {
-    background-color: #d35400;
-}
-
-/* Thank You Message Styling */
-.thank-you-message {
-    text-align: center;
-    margin-top: 3rem;
-}
-
-.thank-you-message h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.thank-you-message p {
-    font-size: 1.2rem;
+.hero p {
+    font-size: 1.5rem;
     margin-bottom: 2rem;
 }
 
-.thank-you-message a.btn {
-    display: inline-block;
-    padding: 0.75rem 2rem;
+.hero .btn {
     background-color: #f16521;
     color: white;
-    font-size: 1.1rem;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
     border-radius: 5px;
     text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
-.thank-you-message a.btn:hover {
+.hero .btn:hover {
     background-color: #d35400;
 }
 
-/* Featured Products Section */
+/* ====================================================
+   Featured Products (Home Page)
+   ==================================================== */
 .featured-products {
     padding: 3rem 1.5rem;
     background-color: #fff;
@@ -190,6 +160,9 @@ footer {
     color: #333;
 }
 
+/* ====================================================
+   Specific Product Page
+   ==================================================== */
 .product-grid {
     display: flex;
     justify-content: space-between;
@@ -243,265 +216,131 @@ footer {
 .product a.btn:hover {
     background-color: #d35400;
 }
-
-/* Hero Section */
-.hero {
-    position: relative;
-    height: 80vh;
-    background: url('../images/hero-background.jpg') no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    padding: 2rem;
-}
-
-.hero-content {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 2rem;
-    border-radius: 10px;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.hero .btn {
-    background-color: #f16521;
-    color: white;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.hero .btn:hover {
-    background-color: #d35400;
-}
-
-/* Products List Section */
-.products-list {
-    padding: 3rem 1.5rem;
-    background-color: #fff;
-    text-align: center;
-}
-
-.products-list h1 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #333;
-}
-
-.product-grid {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
-}
-
-/* Product Detail Page */
+/* Product Detail Container */
 .product-detail {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3rem 1rem;
-    background-color: #fff;
-}
-
-.product-detail img {
-    max-width: 400px;
-    margin-right: 2rem;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 2rem;
+    background-color: #f9f9f9;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    gap: 2rem;
+    flex-wrap: wrap;
+    /* Stacks image and text vertically on smaller screens */
 }
 
+/* Product Image */
+.product-detail img {
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+/* Image Hover Effect */
+.product-detail img:hover {
+    transform: scale(1.05);
+}
+
+/* Product Info (Description) */
 .product-info {
+    flex: 1;
     max-width: 600px;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .product-info h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
+    color: #333;
 }
 
 .product-info p {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Comment Section */
+.comment-section {
+    width: 100%;
+    margin-top: 2rem;
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.comment-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.comment-section textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    resize: vertical;
     margin-bottom: 1rem;
 }
 
-.product-info .price {
-    color: #f16521;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-
-.product-info .btn {
-    display: inline-block;
-    padding: 0.75rem 2rem;
+.comment-section button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
     background-color: #f16521;
     color: white;
-    font-size: 1.2rem;
-    text-decoration: none;
+    font-size: 1.1rem;
     border-radius: 5px;
+    cursor: pointer;
+    border: none;
     transition: background-color 0.3s ease;
 }
 
-.product-info .btn:hover {
+.comment-section button:hover {
     background-color: #d35400;
 }
 
-/* Checkout Section */
-.checkout-container {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1100px;
-    margin: 20px auto;
-    padding: 20px;
-}
-
-.cart-items {
-    flex: 0.65;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.checkout-summary {
-    flex: 0.3;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.cart-status {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-/* Cart Item Styles */
-.checkout-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-}
-
-.checkout-item img {
-    width: 100px;
-    margin-right: 20px;
-}
-
-.checkout-item-details h3 {
-    font-size: 1rem;
-    margin-bottom: 5px;
-}
-
-.checkout-item-details p {
-    color: #555;
-    margin: 2px 0;
-}
-
-.item-price {
-    font-weight: bold;
-    margin-top: 5px;
-}
-
-.quantity input {
-    width: 50px;
-    padding: 5px;
-    font-size: 1rem;
-}
-
-/* Checkout Buttons */
-.btn-checkout {
-    background-color: #f16521;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.btn-remove {
-    background-color: transparent;
-    color: #f16521;
-    border: none;
-    cursor: pointer;
-    text-decoration: underline;
-    font-size: 0.9rem;
-}
-
-/* Summary Section */
-.checkout-summary h2 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-.checkout-summary p {
-    font-size: 1rem;
-    margin: 10px 0;
-}
-
-hr {
-    margin: 20px 0;
-    border: 0.5px solid #ddd;
-}
-
-/* Payment Page Styles */
-.payment-container {
-    max-width: 800px;
-    margin: 2rem auto;
+/* ====================================================
+   Contact Form (Contact Us Page)
+   ==================================================== */
+.contact-form {
+    max-width: 600px;
+    margin: 3rem auto;
     padding: 2rem;
     background-color: #fff;
+    border: 1px solid #e6e6e6;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.payment-container h1 {
+.contact-form h1 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
     text-align: center;
-    color: #333;
 }
 
-/* Form Fields */
-fieldset {
-    margin-bottom: 1.5rem;
-    border: 1px solid #e6e6e6;
-    border-radius: 5px;
-    padding: 1rem;
-    background-color: #f9f9f9;
-}
-
-legend {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #333;
-    padding: 0 0.5rem;
-}
-
-label {
+.contact-form label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: bold;
-    color: #555;
 }
 
-input[type="text"],
-input[type="email"] {
+.contact-form input,
+.contact-form textarea {
     width: 100%;
     padding: 0.75rem;
     margin-bottom: 1rem;
@@ -511,50 +350,24 @@ input[type="email"] {
     background-color: #f6f6f6;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus {
-    border-color: #f16521;
-    outline: none;
-}
-
-/* Order Summary */
-.order-summary {
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    padding: 1rem;
-    border: 1px solid #e6e6e6;
-}
-
-.order-summary p {
-    font-size: 1rem;
-    margin: 0.5rem 0;
-    color: #333;
-}
-
-hr {
-    border: 0.5px solid #ddd;
-    margin: 1rem 0;
-}
-
-/* Payment Button */
-.btn-submit {
+.contact-form button {
+    width: 100%;
+    padding: 0.75rem;
     background-color: #f16521;
     color: white;
-    padding: 0.75rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
     border-radius: 5px;
     cursor: pointer;
     border: none;
-    width: 100%;
-    margin-top: 1rem;
-    transition: background-color 0.3s ease;
 }
 
-.btn-submit:hover {
+.contact-form button:hover {
     background-color: #d35400;
 }
 
-/* Profile Page Layout */
+/* ====================================================
+   Profile Page
+   ==================================================== */
 .profile-container {
     display: flex;
     max-width: 1200px;
@@ -562,7 +375,6 @@ hr {
     gap: 20px;
 }
 
-/* Profile Information Section */
 .profile-info {
     flex: 0.3;
     background-color: #fff;
@@ -650,280 +462,108 @@ hr {
     color: #555;
 }
 
-/* Add Item Form Styling */
-.add-item-form {
+/* ====================================================
+   Checkout Section (Cart Page)
+   ==================================================== */
+.checkout-container {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.add-item-form input,
-.add-item-form button {
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 5px;
-}
-
-.add-item-form button {
-    background-color: #f16521;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.add-item-form button:hover {
-    background-color: #d35400;
-}
-/* Profile Icon Styling */
-.profile-icon {
-    width: 30px;
-    /* Same width as the cart icon */
-    height: 30px;
-    /* Same height as the cart icon */
-    cursor: pointer;
-    vertical-align: middle;
-    object-fit: contain;
-    /* Ensures the image scales correctly */
-}
-/* Profile Page Styling */
-.profile-info,
-.art-for-sale,
-.purchased-art {
-    max-width: 800px;
-    margin: 2rem auto;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
     background-color: #fff;
-    padding: 1.5rem;
-    border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
-.profile-info h1,
-.art-for-sale h2,
-.purchased-art h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.profile-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
-/* Add Item to Sell Section */
-#add-item-section {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2rem;
+/* Cart Items Section */
+.cart-items {
+    flex: 0.65;
     background-color: #fff;
-    border: 1px solid #e6e6e6;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
-#add-item-section h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    color: #333;
-}
-
-#add-item-section label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #555;
-}
-
-#add-item-section input,
-#add-item-section textarea {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #e6e6e6;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: #f9f9f9;
-}
-
-#add-item-section button {
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #f16521;
-    color: white;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s ease;
-}
-
-#add-item-section button:hover {
-    background-color: #d35400;
-}
-
-/* Style for the image preview */
-#image-preview {
-    display: block;
-    margin: 1rem 0;
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-/* Art section styles */
-.art-card {
+.cart-item {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    border: 1px solid #e6e6e6;
-    border-radius: 8px;
-}
-
-.art-card img {
-    width: 80px;
-    height: 80px;
-    margin-right: 1rem;
-    border-radius: 5px;
-}
-
-.art-card h3 {
-    font-size: 1.2rem;
-    margin: 0;
-}
-
-/* Form Styles */
-fieldset {
-    margin-bottom: 1.5rem;
-    border: 1px solid #e6e6e6;
-    border-radius: 5px;
-    padding: 1rem;
-    background-color: #f9f9f9;
-}
-
-legend {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #333;
-    padding: 0 0.5rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #555;
-}
-
-input[type="text"],
-input[type="email"] {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #e6e6e6;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: #f6f6f6;
-}
-
-/* Button Styling */
-.btn-submit {
-    background-color: #f16521;
-    color: white;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-    width: 100%;
-    margin-top: 1rem;
-    transition: background-color 0.3s ease;
-}
-
-.btn-submit:hover {
-    background-color: #d35400;
-}
-
-/* Order History Section */
-.order-history {
-    margin-top: 2rem;
-}
-
-.order-history h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.order-list {
-    background-color: #f9f9f9;
-    padding: 1rem;
-    border-radius: 5px;
-    border: 1px solid #e6e6e6;
-}
-
-.order-item {
-    padding: 1rem;
+    margin-bottom: 20px;
     border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 10px;
 }
 
-.order-item:last-child {
-    border-bottom: none;
-}
-/* Comment Section Styling */
-.comment-section {
-    margin-top: 2rem;
-    background-color: #fff;
-    border: 1px solid #e6e6e6;
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+.cart-item img {
+    width: 100px;
+    margin-right: 20px;
 }
 
-.comment-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: #333;
-    text-align: center;
-}
-
-.comment-section textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #e6e6e6;
-    border-radius: 5px;
+.cart-item-details h3 {
     font-size: 1rem;
-    background-color: #f9f9f9;
-    resize: vertical;
-    margin-bottom: 1rem;
+    margin-bottom: 5px;
 }
 
-.comment-section button {
-    display: block;
-    width: 100%;
-    padding: 0.75rem;
+.cart-item-details p {
+    color: #555;
+    margin: 2px 0;
+}
+
+.quantity input {
+    width: 50px;
+    padding: 5px;
+    font-size: 1rem;
+}
+
+/* Order Summary */
+.checkout-summary {
+    flex: 0.3;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.checkout-summary h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.checkout-summary p {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+/* Payment and Remove Buttons */
+.btn-checkout {
     background-color: #f16521;
     color: white;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 10px 20px;
     border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
-.comment-section button:hover {
-    background-color: #d35400;
+.btn-remove {
+    background-color: transparent;
+    color: #f16521;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 0.9rem;
 }
 
-/* Style for success message */
-.comment-success {
-    margin-top: 1rem;
-    padding: 0.75rem;
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    border-radius: 5px;
-    display: none;
-    /* Hidden by default */
+/* ====================================================
+   Footer Styling
+   ==================================================== */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9rem;
+    width: 100%;
 }
