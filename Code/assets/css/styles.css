@@ -494,8 +494,11 @@ header nav ul li a:focus {
 }
 
 .cart-item img {
-    width: 100px;
-    margin-right: 20px;
+    width: 50px;
+    /* Adjust size as needed */
+    height: auto;
+    display: block;
+    margin-right: 1rem;
 }
 
 .cart-item-details h3 {
